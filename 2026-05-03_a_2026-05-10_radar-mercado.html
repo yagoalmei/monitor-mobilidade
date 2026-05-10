@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Radar Mercado · 03 a 10 de maio · 2026</title>
+<style>
+  :root {
+    --bg: #fafaf9; --surface: #ffffff; --text: #1c1917; --muted: #57534e;
+    --border: #e7e5e4; --accent: #ea580c; --soft: #f1f5f9; --link: #1d4ed8;
+    --n1-bg: #fee2e2; --n1-text: #991b1b;
+    --n2-bg: #fef3c7; --n2-text: #92400e;
+    --n3-bg: #dcfce7; --n3-text: #166534;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0c0a09; --surface: #1c1917; --text: #f5f5f4; --muted: #a8a29e;
+      --border: #292524; --accent: #fb923c; --soft: #292524; --link: #93c5fd;
+      --n1-bg: #7f1d1d; --n1-text: #fecaca;
+      --n2-bg: #78350f; --n2-text: #fde68a;
+      --n3-bg: #14532d; --n3-text: #bbf7d0;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+    line-height: 1.6; font-size: 17px;
+  }
+  .container { max-width: 720px; margin: 0 auto; padding: 32px 20px 64px; }
+  header { margin-bottom: 40px; }
+  .eyebrow {
+    font-size: 12px; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 12px;
+  }
+  h1 {
+    font-size: 32px; line-height: 1.2; margin: 0 0 12px;
+    font-weight: 700; letter-spacing: -0.02em;
+  }
+  .subtitle { color: var(--muted); font-style: italic; font-size: 16px; margin: 0; }
+  .tldr {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 12px; padding: 20px 22px; margin: 28px 0 36px;
+  }
+  .tldr h3 {
+    margin: 0 0 12px; font-size: 12px; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--accent);
+  }
+  .tldr p { margin: 0 0 8px; font-size: 16px; }
+  .tldr p:last-child { margin-bottom: 0; }
+  .toc {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 12px; padding: 18px 22px; margin-bottom: 40px;
+  }
+  .toc h3 {
+    margin: 0 0 10px; font-size: 12px; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--muted);
+  }
+  .toc-group { margin-bottom: 14px; }
+  .toc-group:last-child { margin-bottom: 0; }
+  .toc-group-title { font-size: 13px; font-weight: 600; color: var(--muted); margin-bottom: 4px; }
+  .toc ol { margin: 0; padding-left: 22px; }
+  .toc li { margin-bottom: 4px; font-size: 15px; }
+  .toc a { color: var(--link); text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+  .section-header {
+    font-size: 20px; font-weight: 700; margin: 48px 0 20px; padding-top: 16px;
+    border-top: 1px solid var(--border); display: flex; align-items: center; gap: 10px;
+  }
+  .section-header:first-of-type { border-top: none; padding-top: 0; }
+  .item {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 14px; padding: 24px 24px 20px; margin-bottom: 24px;
+  }
+  .item-meta { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+  .badge {
+    display: inline-block; padding: 3px 10px; border-radius: 999px;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.04em;
+  }
+  .badge-n1 { background: var(--n1-bg); color: var(--n1-text); }
+  .badge-n2 { background: var(--n2-bg); color: var(--n2-text); }
+  .badge-n3 { background: var(--n3-bg); color: var(--n3-text); }
+  .badge-empresa {
+    background: var(--soft); color: var(--muted);
+    font-weight: 600;
+  }
+  .number {
+    font-size: 13px; font-weight: 700; color: var(--muted);
+    margin-left: auto;
+  }
+  .item h2 {
+    margin: 0 0 14px; font-size: 21px; line-height: 1.3; font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .item p { margin: 0 0 14px; }
+  .item p strong { font-weight: 700; }
+  .why {
+    background: var(--soft); border-left: 3px solid var(--accent);
+    padding: 12px 16px; border-radius: 4px; margin: 16px 0;
+  }
+  .why-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 4px;
+  }
+  .why p { margin: 0; font-size: 15px; }
+  .tese {
+    border-left: 3px solid var(--n3-text); padding: 10px 14px; border-radius: 4px;
+    background: var(--soft); margin: 14px 0; font-size: 15px;
+  }
+  .tese-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--n3-text); margin-bottom: 4px;
+  }
+  .sources {
+    font-size: 14px; color: var(--muted); margin-top: 16px;
+    padding-top: 14px; border-top: 1px solid var(--border);
+  }
+  .sources a { color: var(--link); text-decoration: none; }
+  .sources a:hover { text-decoration: underline; }
+  .sources .coverage { color: var(--muted); }
+  .sinais-fracos {
+    background: var(--surface); border: 1px dashed var(--border);
+    border-radius: 12px; padding: 18px 22px; margin: 32px 0 24px;
+  }
+  .sinais-fracos h3 {
+    margin: 0 0 10px; font-size: 13px; font-weight: 700; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--muted);
+  }
+  .sinais-fracos ul { margin: 0; padding-left: 22px; }
+  .sinais-fracos li { font-size: 15px; color: var(--muted); margin-bottom: 4px; }
+  footer {
+    text-align: center; margin-top: 56px; padding-top: 24px;
+    border-top: 1px solid var(--border); color: var(--muted); font-size: 13px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="eyebrow">RADAR MERCADO · SEMANA 03–10/MAIO · 2026</div>
+    <h1>Semana 03 a 10 de maio de 2026</h1>
+    <p class="subtitle">Concorrência direta, adjacentes e radar de startups em mobilidade veicular brasileira.</p>
+  </header>
+
+  <section class="tldr">
+    <h3>TL;DR</h3>
+    <p><strong>Free-flow virou padrão.</strong> A BR-060 (Goiás) começou a operar com cobrança sem cancela em 01/mai e integrou de uma vez ConectCar, Veloe, Taggy e Move Mais — o jogo do pedágio agora é interoperabilidade, não tag exclusiva.</p>
+    <p><strong>Conectividade vira escala.</strong> Stellantis atingiu 500 mil carros conectados na América do Sul e expandiu para a Strada (carro mais vendido da região). O ativo de telemetria das montadoras está virando relevante o suficiente para incomodar quem hoje monetiza serviços veiculares pós-venda.</p>
+    <p><strong>Capital quente no veicular.</strong> A Listo (fintech automotiva) fechou R$ 1 bi em FIDC estruturado por Itaú BBA e UBS BB, e já sinaliza primeira rodada de equity — sinal claro de que o crédito veicular voltou ao centro da mesa de investidores.</p>
+    <p><strong>Apps sob nova régua.</strong> Uber, 99 e InDrive passaram a operar sob regras federais de segurança e transparência (pontos de descanso, divisão de valores, verificação por PIN). Compliance vira diferencial competitivo no setor.</p>
+  </section>
+
+  <nav class="toc">
+    <h3>Índice</h3>
+    <div class="toc-group">
+      <div class="toc-group-title">🔴 Nível 1 — Concorrência Direta</div>
+      <ol>
+        <li><a href="#item-01">ConectCar, Veloe, Taggy e Move Mais ativam free-flow na BR-060</a></li>
+      </ol>
+    </div>
+    <div class="toc-group">
+      <div class="toc-group-title">🟡 Nível 2 — Adjacentes</div>
+      <ol start="2">
+        <li><a href="#item-02">Stellantis atinge 500 mil carros conectados na América do Sul</a></li>
+        <li><a href="#item-03">Movida + Uber lançam Tuk-Tuk elétrico em Vitória/ES</a></li>
+        <li><a href="#item-04">BYD chega a 7,12% das corridas de app no Brasil</a></li>
+        <li><a href="#item-05">Uber, 99 e InDrive operam sob novas regras federais de segurança</a></li>
+      </ol>
+    </div>
+    <div class="toc-group">
+      <div class="toc-group-title">🟢 Nível 3 — Radar Obscuro</div>
+      <ol start="6">
+        <li><a href="#item-06">Listo capta R$ 1 bi via FIDC e estuda rodada de equity</a></li>
+        <li><a href="#item-07">Passaporte Veicular Digital escala tokenização com Detran-PR</a></li>
+      </ol>
+    </div>
+  </nav>
+
+  <h2 class="section-header">🔴 Nível 1 — Concorrência Direta</h2>
+
+  <article class="item" id="item-01">
+    <div class="item-meta">
+      <span class="badge badge-n1">N1 · PEDÁGIO/TAG</span>
+      <span class="badge badge-empresa">ConectCar · Veloe · Taggy · Move Mais</span>
+      <span class="number">01</span>
+    </div>
+    <h2>Free-flow BR-060 entra em operação integrando quatro tags concorrentes</h2>
+    <p>A partir de 01/mai/2026, a Rota Verde Goiás iniciou a operação de pedágio sem cancela (free-flow) na BR-060, entre Goiânia e Rio Verde. O sistema identifica o veículo na passagem e cobra automaticamente, com aceitação simultânea de <strong>ConectCar, Veloe, Taggy e Move Mais</strong> (além de outras tags do mercado). É a primeira grande rodovia do Centro-Oeste a entrar nesse modelo.</p>
+    <div class="why">
+      <div class="why-label">Por que importa</div>
+      <p>Free-flow padroniza a aceitação cruzada de tags e reduz o poder de barreira da tag exclusiva. A disputa se desloca do "qual tag você usa" para "qual app gerencia melhor o seu carro" — fidelização vira função de UX, programa de pontos, integração com outros serviços (multas, IPVA, seguros). Para quem opera só tag pura, é apertar a margem; para quem opera plataforma de gestão veicular, é oportunidade de capturar o usuário que antes ficava preso ao app da tag.</p>
+    </div>
+    <div class="sources">
+      <a href="https://portal6.com.br/2026/05/01/pedagio-sem-cancela-comeca-a-funcionar-na-rodovia-entre-goiania-e-rio-verde-em-maio-veja-como-vai-funcionar/" target="_blank">Portal 6 · 01/mai</a> · <span class="coverage">cobertura regional</span>
+    </div>
+  </article>
+
+  <h2 class="section-header">🟡 Nível 2 — Adjacentes</h2>
+
+  <article class="item" id="item-02">
+    <div class="item-meta">
+      <span class="badge badge-n2">N2 · MONTADORA</span>
+      <span class="badge badge-empresa">Stellantis</span>
+      <span class="number">02</span>
+    </div>
+    <h2>Stellantis atinge 500 mil carros conectados na América do Sul e expande para a Strada</h2>
+    <p>A Stellantis anunciou que chegou a <strong>cerca de 500 mil veículos conectados na América do Sul</strong> e que a Fiat Strada — carro mais vendido da região — passa a integrar a ofensiva digital em 2026, somando-se aos aplicativos Connect Fiat, Leap+ e RAM. A frota conectada permite telemetria, atualizações OTA e serviços remotos de manutenção e segurança.</p>
+    <div class="why">
+      <div class="why-label">Por que importa</div>
+      <p>Montadoras com app conectado começam a deter o canal direto com o motorista — o mesmo canal que hoje players de pagamentos veiculares disputam. Quando a Strada vira veículo conectado em massa, a montadora pode embutir IPVA, licenciamento, seguro e pagamento de pedágio dentro do próprio app nativo. O risco para quem opera carteira veicular hoje não é o concorrente direto: é o app que já vem instalado de fábrica.</p>
+    </div>
+    <div class="sources">
+      <a href="https://www.autossegredos.com.br/tecnologia/stellantis-atinge-500-mil-carros-conectados-na-america-do-sul-e-acelera-ofensiva-digital-em-2026/" target="_blank">Auto Segredos</a> · <span class="coverage">cobertura especializada</span>
+    </div>
+  </article>
+
+  <article class="item" id="item-03">
+    <div class="item-meta">
+      <span class="badge badge-n2">N2 · MOBILIDADE</span>
+      <span class="badge badge-empresa">Movida + Uber</span>
+      <span class="number">03</span>
+    </div>
+    <h2>Movida e Uber lançam Tuk-Tuk elétrico em Vitória/ES</h2>
+    <p>A parceria entre Movida e Uber colocou na rua, em Vitória, uma frota de <strong>Tuk-Tuks 100% elétricos</strong> operados por motoristas parceiros locais. Posicionados como a corrida mais barata do app na cidade, são pensados para deslocamentos curtos e turistas no verão capixaba.</p>
+    <div class="why">
+      <div class="why-label">Por que importa</div>
+      <p>Movida segue se posicionando menos como locadora tradicional e mais como infraestrutura de frota para mobilidade compartilhada — o caminho da Kovi, com músculo. Para quem vende serviços ao motorista de aplicativo (multas, IPVA parcelado, financiamento), a frota de aluguel passa a ser um cliente B2B único concentrando milhares de motoristas — e o canal de aquisição muda totalmente.</p>
+    </div>
+    <div class="sources">
+      <a href="https://www.uber.com/br/pt-br/blog/tuk-tuk-chega-em-vitoria/" target="_blank">Blog Uber Brasil</a>
+    </div>
+  </article>
+
+  <article class="item" id="item-04">
+    <div class="item-meta">
+      <span class="badge badge-n2">N2 · MONTADORA</span>
+      <span class="badge badge-empresa">BYD</span>
+      <span class="number">04</span>
+    </div>
+    <h2>BYD lidera carros chineses em apps de transporte e atinge 7,12% das corridas no Brasil</h2>
+    <p>Levantamento divulgado em 05/mai mostra que <strong>1 em cada 12 corridas de app no Brasil já é feita em carro chinês</strong>. A BYD sozinha responde por 7,12% das viagens, ultrapassando Ford (6,12%), Toyota (3,53%) e Nissan (1,15%). A frota de motoristas de app está se eletrificando e migrando para marcas chinesas mais rápido que o consumidor final.</p>
+    <div class="why">
+      <div class="why-label">Por que importa</div>
+      <p>Motorista de app é cliente core de gestão de multas, IPVA e seguros. Migração para BYD significa: (i) outro app conectado (BYD) virando concorrente para o canal de relacionamento, (ii) menor valor médio de IPVA (incentivo para elétrico vence em vários estados), (iii) diferentes padrões de uso e sinistralidade para seguro. Vale estudar produto específico para frota BYD.</p>
+    </div>
+    <div class="sources">
+      <a href="https://paraibatotal.com.br/2026/05/05/uma-em-cada-12-corridas-de-app-no-brasil-ja-e-feita-por-carro-chines-aponta-levantamento/" target="_blank">Paraíba Total · 05/mai</a>
+    </div>
+  </article>
+
+  <article class="item" id="item-05">
+    <div class="item-meta">
+      <span class="badge badge-n2">N2 · REGULAÇÃO</span>
+      <span class="badge badge-empresa">Uber · 99 · InDrive</span>
+      <span class="number">05</span>
+    </div>
+    <h2>Apps de transporte passam a operar sob novas regras federais de segurança</h2>
+    <p>Em 03/mai entraram em vigor regras adicionais para apps como <strong>Uber, 99 e InDrive</strong>: criação de pontos de descanso para motoristas, maior transparência sobre a divisão de valores em cada corrida, verificação por PIN, gravação de áudio com IA e detecção de desvio de rota em tempo real. As medidas se somam ao anúncio do Governo Federal em março.</p>
+    <div class="why">
+      <div class="why-label">Por que importa</div>
+      <p>Regulação aumenta o custo de compliance dos apps e cria espaço para parceiros que ajudem a operar essa nova régua. Mais transparência na divisão de valores é também um vetor: motorista que enxerga melhor o que ganha é motorista que toma decisão financeira melhor — e potencial usuário de produtos de gestão financeira veicular. Vale acompanhar se vai sair MP/decreto detalhando obrigações específicas dos apps no curto prazo.</p>
+    </div>
+    <div class="sources">
+      <a href="https://www.em.com.br/emfoco/2026/05/03/aplicativos-como-uber-99-e-indrive-passam-a-seguir-novas-regras-de-seguranca-e-monitoramento-de-viagens/" target="_blank">Estado de Minas · 03/mai</a>
+    </div>
+  </article>
+
+  <h2 class="section-header">🟢 Nível 3 — Radar Obscuro</h2>
+
+  <article class="item" id="item-06">
+    <div class="item-meta">
+      <span class="badge badge-n3">N3 · FINTECH VEICULAR</span>
+      <span class="badge badge-empresa">Listo</span>
+      <span class="number">06</span>
+    </div>
+    <h2>Listo capta R$ 1 bi via FIDC e estuda primeira rodada de equity</h2>
+    <p>A fintech automotiva Listo concluiu captação de <strong>R$ 1 bilhão por meio de FIDC</strong>, em duas emissões sequenciais estruturadas por Itaú BBA e UBS BB, atraindo principalmente investidores institucionais. Com o capital, projeta dobrar de tamanho em 18 a 24 meses e estuda agora uma rodada inédita de equity. A Listo opera crédito e serviços financeiros para o setor automotivo.</p>
+    <div class="why">
+      <div class="why-label">Por que importa</div>
+      <p>FIDC bilionário em fintech veicular significa que o mercado de capitais voltou a comprar a tese do crédito automotivo digital com escala — em um momento em que o financiamento de veículos bate recorde de 17 anos (616 mil vendas financiadas em janeiro). Listo cresce, mas mais importante: cria um benchmark de funding que destrava captação para outras fintechs veiculares brasileiras. Janela aberta para quem está estruturando funding na vertical.</p>
+    </div>
+    <div class="tese">
+      <div class="tese-label">Tese</div>
+      Listo pode em 12-18 meses anunciar equity round de R$ 200-500M, virar candidato a IPO ou alvo de aquisição por banco grande querendo acelerar vertical auto. Possível movimento de consolidação: Listo + InstaCarro + Creditas Auto operam em camadas distintas mas complementares.
+    </div>
+    <div class="sources">
+      <a href="https://finsidersbrasil.com.br/negocios-em-fintechs/listo-abastece-fidc-com-r-1-bi-e-estuda-aporte-para-acelerar-crescimento/" target="_blank">Finsiders Brasil</a>
+    </div>
+  </article>
+
+  <article class="item" id="item-07">
+    <div class="item-meta">
+      <span class="badge badge-n3">N3 · DATA + BLOCKCHAIN</span>
+      <span class="badge badge-empresa">Vetrii · Tecpar · Detran-PR</span>
+      <span class="number">07</span>
+    </div>
+    <h2>Passaporte Veicular Digital escala tokenização com Detran-PR</h2>
+    <p>O projeto Passaporte Veicular Digital, em parceria entre <strong>Vetrii, Tecpar e Detran-PR</strong>, registrou 3.462 veículos em blockchain e prepara escala para 180 mil tokenizações por mês. A solução cria um histórico imutável e auditável do veículo (proprietários, sinistros, manutenções) que pode ser consultado por qualquer parte com permissão.</p>
+    <div class="why">
+      <div class="why-label">Por que importa</div>
+      <p>Histórico veicular auditável em blockchain ataca diretamente o produto de consulta veicular como existe hoje — basicamente um agregador de bases pagas e nem sempre atualizadas. Se o passaporte virar padrão público (Detran-PR é o teste), o valor do produto migra de "ter acesso a base" para "interpretar dados padronizados". Quem hoje vende consulta como commodity precisa reposicionar para análise/laudo. Importante acompanhar se outros Detrans vão adotar.</p>
+    </div>
+    <div class="tese">
+      <div class="tese-label">Tese</div>
+      Em 18-24 meses, se outros 2-3 Detrans estaduais entrarem, o produto "consulta veicular paga" como hoje vira commodity e o jogo migra para serviço de valor agregado sobre o passaporte público. Vetrii pode virar alvo de aquisição por player nacional de mobilidade ou seguradora grande.
+    </div>
+    <div class="sources">
+      <a href="https://www.google.com/search?q=Passaporte+Veicular+Digital+Vetrii+Tecpar+Detran-PR+blockchain" target="_blank">Cobertura agregada</a>
+    </div>
+  </article>
+
+  <footer>
+    Radar Mercado · publicado automaticamente · monitor-mobilidade
+  </footer>
+</div>
+</body>
+</html>
