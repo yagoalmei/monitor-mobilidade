@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monitor de Mobilidade · 03-10 mai 2026</title>
+<style>
+  :root {
+    --bg: #fafaf9;
+    --surface: #ffffff;
+    --text: #1c1917;
+    --muted: #57534e;
+    --border: #e7e5e4;
+    --accent: #ea580c;
+    --soft: #f1f5f9;
+    --link: #1d4ed8;
+    --shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0c0a09;
+      --surface: #1c1917;
+      --text: #f5f5f4;
+      --muted: #a8a29e;
+      --border: #292524;
+      --accent: #fb923c;
+      --soft: #292524;
+      --link: #93c5fd;
+      --shadow: none;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
+  header { border-bottom: 1px solid var(--border); padding-bottom: 24px; margin-bottom: 32px; }
+  .eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin: 0 0 8px; }
+  h1 { font-size: 32px; font-weight: 700; line-height: 1.15; margin: 0 0 12px; letter-spacing: -0.02em; }
+  .subtitle { font-size: 16px; color: var(--muted); margin: 0; font-style: italic; }
+  .toc { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px 20px; margin-bottom: 32px; box-shadow: var(--shadow); font-size: 14px; }
+  .toc-group { margin-bottom: 8px; }
+  .toc-group:last-child { margin-bottom: 0; }
+  .toc-label { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+  .toc a { color: var(--link); text-decoration: none; display: block; padding: 4px 0; }
+  .toc a:hover { text-decoration: underline; }
+  .section { margin-top: 40px; margin-bottom: 24px; }
+  .section-title { font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin: 0 0 16px; padding-bottom: 8px; border-bottom: 2px solid var(--accent); display: inline-block; }
+  .item { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 28px 32px; margin-bottom: 16px; box-shadow: var(--shadow); }
+  .item-num { display: inline-block; font-size: 12px; font-weight: 700; color: var(--accent); margin-bottom: 8px; letter-spacing: 0.06em; }
+  .item h2 { font-size: 22px; font-weight: 700; line-height: 1.25; margin: 0 0 16px; letter-spacing: -0.01em; }
+  .item p { margin: 0 0 14px; }
+  .item p:last-child { margin-bottom: 0; }
+  .why { background: var(--soft); border-left: 3px solid var(--accent); border-radius: 6px; padding: 14px 18px; margin: 16px 0 0; font-size: 15px; }
+  .why strong { color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em; font-size: 11px; display: block; margin-bottom: 4px; }
+  .sources { margin-top: 16px; font-size: 13px; color: var(--muted); }
+  .sources a { color: var(--link); text-decoration: none; }
+  .sources a:hover { text-decoration: underline; }
+  .empty { background: var(--surface); border: 1px dashed var(--border); border-radius: 12px; padding: 20px 24px; color: var(--muted); font-size: 15px; text-align: center; font-style: italic; }
+  footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--border); font-size: 13px; color: var(--muted); text-align: center; }
+  footer a { color: var(--muted); }
+  .nota { background: var(--soft); border-radius: 12px; padding: 16px 20px; font-size: 14px; color: var(--muted); margin-bottom: 24px; line-height: 1.5; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <p class="eyebrow">MONITOR DE MOBILIDADE · SEMANA 19 · 2026</p>
+  <h1>03 a 10 de maio</h1>
+  <p class="subtitle">Sinal sobre ruído — Sem Parar, Gringo, Zapay, ONC e movimentos do setor.</p>
+</header>
+
+<div class="nota">
+  <strong>Edição inaugural · semana fraca em anúncios diretos.</strong> Sem Parar foi o único dos quatro monitorados com movimento próprio relevante; Gringo, Zapay e ONC sem novidades públicas substantivas na janela. O sinal mais forte da semana veio do regulador (Contran 277/2026 sobre Free Flow), que afeta diretamente o ecossistema de tags. Próximas edições devem ficar mais densas conforme o ano destrava.
+</div>
+
+<nav class="toc">
+  <div class="toc-group">
+    <div class="toc-label">Empresas monitoradas</div>
+    <a href="#sem-parar">Sem Parar — Plataforma unificada de frotas (Zapay + Gringo)</a>
+    <a href="#gringo">Gringo — sem novidades</a>
+    <a href="#zapay">Zapay — sem novidades</a>
+    <a href="#onc">ONC — sem novidades</a>
+  </div>
+  <div class="toc-group">
+    <div class="toc-label">Bônus — setor</div>
+    <a href="#b1">Contran suspende 3,4 mi de multas Free Flow</a>
+    <a href="#b2">Reajuste de taxa operacional para apps de transporte</a>
+    <a href="#b3">Novas regras de segurança e monitoramento para Uber/99/InDrive</a>
+  </div>
+</nav>
+
+<section class="section">
+  <h3 class="section-title">Sem Parar / Corpay</h3>
+
+  <article class="item" id="sem-parar">
+    <div class="item-num">01 · SEM PARAR</div>
+    <h2>Plataforma unificada de gestão de frotas integrando Zapay e Gringo entra em fase pré-lançamento</h2>
+    <p>A Sem Parar prepara o lançamento de uma <strong>plataforma dedicada a gestão de frotas e consulta de débitos veiculares</strong>, ainda sem nome definido, construída sobre as capacidades vindas das aquisições de <strong>Zapay e Gringo pela Corpay</strong>. A campanha de lançamento posiciona a oferta como redução de gargalos operacionais e mais previsibilidade para gestores de frota.</p>
+    <p>Esse é o primeiro sinal público concreto de como a Corpay pretende <strong>consolidar os ativos B2C (Zapay, Gringo) sob uma camada B2B unificada</strong> — em vez de mantê-los como apps independentes para sempre.</p>
+    <div class="why">
+      <strong>Por que importa</strong>
+      Confirma a tese de que a Corpay vai usar Sem Parar como guarda-chuva e empurrar Zapay/Gringo como tecnologia core de débitos/multas dentro de uma proposta de valor maior (frota, combustível, pedágio, débitos). Para concorrentes B2B (Veloe Empresas, ConectCar Frotas), o terreno fica mais hostil. Para players verticais isolados em "só multas" ou "só IPVA", o risco de comoditização aumenta — o jogo migra para gestão integrada, não para feature única.
+    </div>
+    <div class="sources">
+      Fonte: <a href="https://blog.semparar.com.br/plataforma-de-mobilidade-veicular" target="_blank">Blog Sem Parar — Plataforma de Mobilidade Veicular</a>
+    </div>
+  </article>
+</section>
+
+<section class="section">
+  <h3 class="section-title">Gringo</h3>
+  <div class="empty" id="gringo">Sem novidades relevantes na semana. Última movimentação pública continua sendo a aquisição pela Corpay e a integração com a base Sem Parar.</div>
+</section>
+
+<section class="section">
+  <h3 class="section-title">Zapay</h3>
+  <div class="empty" id="zapay">Sem novidades relevantes na semana. Operação segue como subsidiária Corpay com gestão própria; sem comunicação pública de produto, parcerias ou números na janela.</div>
+</section>
+
+<section class="section">
+  <h3 class="section-title">ONC (Onboard)</h3>
+  <div class="empty" id="onc">Sem novidades relevantes na semana. Atenção: a busca devolveu majoritariamente conteúdo de "Onboard Mobility" (transporte público / ticketing) — vale validar se ONC é a entidade certa de monitoramento ou se há sobreposição de marcas que precise ser ajustada.</div>
+</section>
+
+<section class="section">
+  <h3 class="section-title">Bônus — Movimentos do setor</h3>
+
+  <article class="item" id="b1">
+    <div class="item-num">B1 · REGULAÇÃO</div>
+    <h2>Contran suspende 3,4 milhões de multas Free Flow e cria moratória de 200 dias</h2>
+    <p>A <strong>Deliberação Contran nº 277/2026</strong>, assinada em 28/04/2026 pelo ministro dos Transportes, suspendeu 3,4 milhões de multas aplicadas no sistema Free Flow em rodovias federais e estaduais. Motoristas têm <strong>até 16/11/2026</strong> para regularizar tarifas vencidas sem pagar a multa de R$ 195,23 nem perder pontos na CNH.</p>
+    <p>A medida foi sentida nessa semana com publicações de orientação por parte das próprias operadoras de tag (Sem Parar inclusive publicou guia explicativo). Reflete pressão regulatória sobre o ritmo de implantação do Free Flow e sobre a comunicação com o motorista, ainda imatura.</p>
+    <div class="why">
+      <strong>Por que importa</strong>
+      Mexe diretamente com a curva de receita das operadoras de tag (Sem Parar, ConectCar, Veloe) que vinham capturando upside em Free Flow, e cria janela de comunicação para players de "regularização de débitos" (Zapay, Gringo) atraírem motoristas confusos com a moratória. Quem tiver canal de comunicação bom com o motorista (push, e-mail) ganha aquisição barata nos próximos 6 meses.
+    </div>
+    <div class="sources">
+      Fonte: <a href="https://www.gov.br/transportes/pt-br/assuntos/noticias/2026/04/governo-do-brasil-suspende-mais-de-3-milhoes-de-multas-do-free-flow-e-da-a-motoristas-200-dias-para-pagar-tarifas-vencidas" target="_blank">Ministério dos Transportes</a> · <a href="https://blog.semparar.com.br/suspensao-multas-free-flow/" target="_blank">Blog Sem Parar — Suspensão multas Free Flow</a>
+    </div>
+  </article>
+
+  <article class="item" id="b2">
+    <div class="item-num">B2 · CUSTO DE OPERAÇÃO</div>
+    <h2>Taxa de Gerenciamento Operacional para apps sobe 35% (R$ 78 → R$ 105 por veículo)</h2>
+    <p>A <strong>Taxa de Gerenciamento Operacional municipal</strong> aplicada a motoristas de aplicativo (Uber, 99, InDrive) passou de R$ 78 para R$ 105 por veículo (25 Ufips), reajuste de cerca de <strong>35%</strong>. A medida vem junto de novas exigências de cadastro, seguro de acidentes pessoais e certidões de habilitação, intensificando custo de compliance.</p>
+    <div class="why">
+      <strong>Por que importa</strong>
+      Embora não atinja Sem Parar/Gringo/Zapay/ONC diretamente, pressiona a margem do motorista de app — que é cliente PJ recorrente para todos esses players (combustível, pedágio, multas, débitos). Quanto mais custo na ponta, maior a sensibilidade a cashback, parcelamento e produtos "salva-margem". Oportunidade clara para Gringo e Zapay posicionarem ofertas customizadas para esse segmento.
+    </div>
+    <div class="sources">
+      Fonte: <a href="https://sigamultas.com.br/mudancas-nas-regras-de-veiculos-para-motoristas-de-aplicativo-uber-99-o-que-voce-precisa-saber-em-2026/" target="_blank">Siga Multas — Mudanças nas regras 2026</a>
+    </div>
+  </article>
+
+  <article class="item" id="b3">
+    <div class="item-num">B3 · COMPLIANCE</div>
+    <h2>Uber, 99 e InDrive passam a seguir novas regras de segurança e monitoramento de viagens</h2>
+    <p>Aplicativos de transporte passaram a seguir, a partir de fim de abril, <strong>novas regras de segurança e monitoramento de viagens</strong> — incluindo cadastro profissional atualizado, monitoramento em tempo real, e auditoria de documentação veicular. O ônus de comprovação cai sobre motoristas e plataformas.</p>
+    <div class="why">
+      <strong>Por que importa</strong>
+      Aumenta a relevância de produtos que geram comprovação automática de regularidade veicular (CRLV digital, IPVA pago, licenciamento em dia). Gringo e Zapay têm aqui uma das janelas mais limpas para reposicionarem o app como "passe livre de fiscalização" — adjacência produto-mercado óbvia.
+    </div>
+    <div class="sources">
+      Fonte: <a href="https://www.em.com.br/emfoco/2026/04/25/aplicativos-como-uber-99-e-indrive-passam-a-seguir-novas-regras-de-seguranca-e-monitoramento-de-viagens-aplicativos-de-transporte/" target="_blank">Estado de Minas — Em Foco</a>
+    </div>
+  </article>
+</section>
+
+<footer>
+  Atualizado automaticamente toda segunda às 00:10 · <a href="https://github.com/yagoalmei/monitor-mobilidade">GitHub</a>
+</footer>
+</div>
+</body>
+</html>
