@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monitor de Mobilidade</title>
+<style>
+  :root {
+    --bg: #fafaf9;
+    --surface: #ffffff;
+    --text: #1c1917;
+    --muted: #57534e;
+    --border: #e7e5e4;
+    --accent-soft: #f1f5f9;
+    --link: #1d4ed8;
+    --tag: #ea580c;
+    --shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0c0a09;
+      --surface: #1c1917;
+      --text: #f5f5f4;
+      --muted: #a8a29e;
+      --border: #292524;
+      --accent-soft: #292524;
+      --link: #93c5fd;
+      --tag: #fb923c;
+      --shadow: none;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
+  header { border-bottom: 1px solid var(--border); padding-bottom: 24px; margin-bottom: 32px; }
+  .eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--tag); margin: 0 0 8px; }
+  h1 { font-size: 32px; font-weight: 700; line-height: 1.15; margin: 0 0 12px; letter-spacing: -0.02em; }
+  .subtitle { font-size: 16px; color: var(--muted); margin: 0; }
+  .edition { display: block; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 24px 28px; margin-bottom: 14px; box-shadow: var(--shadow); text-decoration: none; color: var(--text); transition: transform 0.15s ease, border-color 0.15s ease; }
+  .edition:hover { transform: translateY(-1px); border-color: var(--tag); }
+  .edition .week { font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--tag); margin-bottom: 6px; }
+  .edition .date { font-size: 18px; font-weight: 600; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .edition .meta { font-size: 14px; color: var(--muted); margin: 0; }
+  .placeholder { background: var(--surface); border: 1px dashed var(--border); border-radius: 16px; padding: 32px 28px; text-align: center; color: var(--muted); font-size: 15px; }
+  footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--border); font-size: 13px; color: var(--muted); text-align: center; }
+  footer a { color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <p class="eyebrow">MONITOR DE MOBILIDADE · BRASIL</p>
+  <h1>Monitor de Mobilidade</h1>
+  <p class="subtitle">Briefing semanal sobre Sem Parar, Gringo, Zapay, ONC e movimentos relevantes do setor de mobilidade veicular, pagamentos e multas.</p>
+</header>
+
+<!-- EDIÇÕES_AQUI -->
+<div class="placeholder">
+  Primeira edição será publicada na próxima segunda-feira às 00:10.
+</div>
+
+<footer>
+  Atualizado automaticamente · <a href="https://github.com/yagoalmei/monitor-mobilidade">GitHub</a>
+</footer>
+</div>
+</body>
+</html>
