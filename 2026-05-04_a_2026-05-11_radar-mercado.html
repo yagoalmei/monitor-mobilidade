@@ -43,7 +43,7 @@ footer a{color:var(--link);text-decoration:none}
 .vote-status{font-size:12px;color:var(--muted);margin-left:auto}
 .vote-form{margin-top:10px;display:none}
 .vote-form.open{display:block}
-.vote-form textarea{width:100%;min-height:60px;padding:8px;border:1px solid var(--border);border-radius:8px;font-family:inherit;font-size:13px;background:var(--bg);color:var(--text);resize:vertical}
+.vote-form textarea{width:100%;min-height:60px;padding:8px;border:1px solid var(--border);border-radius:8px;font-family:inherit;font-size:16px;background:var(--bg);color:var(--text);resize:vertical}
 .vote-form button{margin-top:6px;background:var(--accent);color:#fff;border:none;border-radius:6px;padding:6px 14px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit}
 .nickname-prompt{position:fixed;bottom:20px;right:20px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px;box-shadow:0 8px 24px rgba(0,0,0,0.15);max-width:280px;z-index:100;display:none}
 .nickname-prompt.open{display:block}
@@ -202,25 +202,56 @@ footer a{color:var(--link);text-decoration:none}
       art.querySelectorAll('.vote-btn').forEach(b => {
         if (b.dataset.voto === prev) b.classList.add('active');
       });
-      art.querySelector('.vote-status').textContent = 'Você votou ' + prev;
+      art.querySelector('.vote-status').textContent = 'Você votou ' + prev + ' ✓';
     }
   });
 
+  async function sendVote(art, voto, motivo) {
+    art.querySelector('.vote-status').textContent = 'Enviando...';
+    try {
+      const r = await fetch(VOTE_CONFIG.workerUrl + '/vote', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          repo: VOTE_CONFIG.repo,
+          item_id: art.dataset.itemId,
+          voto,
+          motivo: motivo || null,
+          nickname: nickname || null,
+          uuid,
+          week: VOTE_CONFIG.week,
+          issue_number: VOTE_CONFIG.issue
+        })
+      });
+      const d = await r.json();
+      if (!d.ok) throw new Error(d.error || 'HTTP ' + r.status);
+      localStorage.setItem('rm_vote_' + VOTE_CONFIG.repo + '_' + VOTE_CONFIG.week + '_' + art.dataset.itemId, voto);
+      art.querySelector('.vote-status').textContent = 'Você votou ' + voto + ' ✓';
+      if (!askedNickname) setTimeout(showNicknamePrompt, 500);
+      return true;
+    } catch (e) {
+      art.querySelector('.vote-status').textContent = 'Erro: ' + e.message;
+      return false;
+    }
+  }
+
   document.querySelectorAll('.vote-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', async () => {
       const art = btn.closest('article.item');
       const voto = btn.dataset.voto;
       const form = art.querySelector('.vote-form');
       art.querySelectorAll('.vote-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      form.dataset.voto = voto;
-      form.classList.add('open');
-      const ta = form.querySelector('textarea');
-      ta.placeholder = (voto === '🚫')
-        ? 'Por que não? (obrigatório, 3 caracteres mínimo)'
-        : 'Comentário (opcional)';
-      ta.focus();
-      if (!askedNickname) setTimeout(showNicknamePrompt, 500);
+      if (voto === '🚫') {
+        form.dataset.voto = voto;
+        form.classList.add('open');
+        const ta = form.querySelector('textarea');
+        ta.placeholder = 'Por que não? (mínimo 3 caracteres)';
+        ta.focus();
+      } else {
+        form.classList.remove('open');
+        await sendVote(art, voto, '');
+      }
     });
   });
 
@@ -230,35 +261,14 @@ footer a{color:var(--link);text-decoration:none}
       const art = sb.closest('article.item');
       const voto = form.dataset.voto;
       const motivo = form.querySelector('textarea').value.trim();
-      if (voto === '🚫' && motivo.length < 3) {
-        alert('Motivo obrigatório para 🚫'); return;
+      if (motivo.length < 3) {
+        alert('Motivo obrigatório (mínimo 3 caracteres)');
+        return;
       }
       sb.disabled = true; sb.textContent = 'Enviando...';
-      try {
-        const r = await fetch(VOTE_CONFIG.workerUrl + '/vote', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            repo: VOTE_CONFIG.repo,
-            item_id: art.dataset.itemId,
-            voto,
-            motivo: motivo || null,
-            nickname: nickname || null,
-            uuid,
-            week: VOTE_CONFIG.week,
-            issue_number: VOTE_CONFIG.issue
-          })
-        });
-        const d = await r.json();
-        if (!d.ok) throw new Error(d.error || 'HTTP ' + r.status);
-        localStorage.setItem('rm_vote_' + VOTE_CONFIG.repo + '_' + VOTE_CONFIG.week + '_' + art.dataset.itemId, voto);
-        art.querySelector('.vote-status').textContent = 'Você votou ' + voto + ' ✓';
-        form.classList.remove('open');
-        sb.disabled = false; sb.textContent = 'Enviar';
-      } catch (e) {
-        alert('Erro ao enviar voto: ' + e.message);
-        sb.disabled = false; sb.textContent = 'Enviar';
-      }
+      const ok = await sendVote(art, voto, motivo);
+      if (ok) form.classList.remove('open');
+      sb.disabled = false; sb.textContent = 'Enviar';
     });
   });
 })();
