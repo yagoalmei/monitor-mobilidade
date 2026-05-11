@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Radar Mercado · Semana 20 · 2026</title>
+<style>
+:root{
+  --bg:#fafaf9; --surface:#ffffff; --text:#1c1917; --muted:#57534e;
+  --border:#e7e5e4; --accent:#ea580c; --soft:#f1f5f9; --link:#1d4ed8;
+  --n1-bg:#fee2e2; --n1-text:#991b1b;
+  --n2-bg:#fef3c7; --n2-text:#92400e;
+  --n3-bg:#dcfce7; --n3-text:#166534;
+  --chip-bg:#f5f5f4; --chip-text:#44403c;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0c0a09; --surface:#1c1917; --text:#f5f5f4; --muted:#a8a29e;
+    --border:#292524; --accent:#fb923c; --soft:#292524; --link:#93c5fd;
+    --n1-bg:#7f1d1d; --n1-text:#fecaca;
+    --n2-bg:#78350f; --n2-text:#fde68a;
+    --n3-bg:#14532d; --n3-text:#bbf7d0;
+    --chip-bg:#292524; --chip-text:#d6d3d1;
+  }
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",system-ui,sans-serif;
+  -webkit-font-smoothing:antialiased;line-height:1.55}
+.wrap{max-width:760px;margin:0 auto;padding:40px 20px 80px}
+header{margin-bottom:28px}
+.eyebrow{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--accent);font-weight:700;margin-bottom:10px}
+h1{font-size:30px;line-height:1.2;margin:0 0 8px;font-weight:800;letter-spacing:-0.02em}
+.subtitle{font-style:italic;color:var(--muted);font-size:15px;margin:0}
+.tldr{background:var(--surface);border:1px solid var(--border);border-radius:12px;
+  padding:18px 20px;margin:24px 0 32px}
+.tldr h3{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--accent);margin:0 0 10px;font-weight:700}
+.tldr p{margin:0;font-size:15px;color:var(--text)}
+.tldr p + p{margin-top:8px}
+.toc{background:var(--soft);border-radius:10px;padding:14px 18px;margin-bottom:36px;
+  font-size:14px}
+.toc-group{margin:6px 0}
+.toc-group strong{display:block;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:4px;font-weight:700}
+.toc a{color:var(--link);text-decoration:none;margin-right:14px;display:inline-block;
+  padding:2px 0}
+.toc a:hover{text-decoration:underline}
+.section-title{font-size:13px;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--muted);font-weight:700;margin:40px 0 16px;
+  padding-bottom:8px;border-bottom:1px solid var(--border)}
+.item{background:var(--surface);border:1px solid var(--border);border-radius:14px;
+  padding:22px 24px;margin-bottom:18px}
+.item-head{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:0.04em;
+  padding:3px 8px;border-radius:6px}
+.badge-n1{background:var(--n1-bg);color:var(--n1-text)}
+.badge-n2{background:var(--n2-bg);color:var(--n2-text)}
+.badge-n3{background:var(--n3-bg);color:var(--n3-text)}
+.chip{display:inline-block;background:var(--chip-bg);color:var(--chip-text);
+  font-size:11px;font-weight:600;padding:3px 8px;border-radius:6px}
+.num{font-variant-numeric:tabular-nums;color:var(--muted);font-size:13px;font-weight:700;
+  margin-left:auto}
+.item h2{font-size:18px;line-height:1.3;margin:0 0 10px;font-weight:700;letter-spacing:-0.01em}
+.item p{margin:0 0 12px;font-size:14.5px;color:var(--text)}
+.box-importa{background:var(--soft);border-left:3px solid var(--accent);
+  border-radius:0 8px 8px 0;padding:12px 16px;margin:14px 0}
+.box-importa strong{display:block;font-size:11px;letter-spacing:0.12em;
+  text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:6px}
+.box-importa p{margin:0;font-size:14px;color:var(--text)}
+.tese{font-size:13.5px;color:var(--muted);margin:10px 0 12px;
+  padding:8px 12px;background:var(--soft);border-radius:6px}
+.tese strong{color:var(--text)}
+.sources{font-size:12.5px;color:var(--muted);margin-top:12px;
+  padding-top:10px;border-top:1px dashed var(--border)}
+.sources strong{color:var(--text);font-weight:600;margin-right:6px}
+.sources a{color:var(--link);text-decoration:none;margin-right:10px}
+.sources a:hover{text-decoration:underline}
+.sources-count{font-size:11px;color:var(--muted);margin-left:6px;font-weight:600}
+.fracos{background:var(--surface);border:1px dashed var(--border);border-radius:12px;
+  padding:18px 22px;margin-top:24px}
+.fracos h3{font-size:13px;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--muted);margin:0 0 12px;font-weight:700}
+.fracos ul{margin:0;padding-left:20px;font-size:14px;color:var(--text)}
+.fracos li{margin-bottom:6px}
+footer{text-align:center;font-size:12px;color:var(--muted);margin-top:48px;
+  padding-top:20px;border-top:1px solid var(--border)}
+.destaque{background:var(--accent);color:#fff;font-size:11px;font-weight:700;
+  letter-spacing:0.1em;text-transform:uppercase;padding:6px 12px;border-radius:6px;
+  display:inline-block;margin-bottom:10px}
+@media (max-width:560px){
+  .wrap{padding:28px 16px 60px}
+  h1{font-size:24px}
+  .item{padding:18px 18px}
+  .item h2{font-size:16px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">RADAR MERCADO · SEMANA 20 · 2026</div>
+    <h1>Semana 04/05 a 11/05</h1>
+    <p class="subtitle">Free flow ativa rede em Goiás e força tags a brigarem por usuário fora do eixo SP-RJ; Stellantis fecha 5 anos de carros conectados na América do Sul.</p>
+  </header>
+
+  <div class="tldr">
+    <h3>TL;DR — As teses da semana</h3>
+    <p><strong>1.</strong> O pedágio sem cancela saiu do laboratório: 5 pórticos ativos em Goiás expandem o jogo das tags para fora dos corredores tradicionais SP-RJ e mudam onde a aquisição vai acontecer nos próximos 12 meses.</p>
+    <p><strong>2.</strong> Conectividade nativa deixou de ser feature premium e virou padrão de volume — Fiat Strada conectada é o sinal de que dados de uso de carro popular vão para a montadora antes de chegar em qualquer fintech.</p>
+    <p><strong>3.</strong> O mercado de seguro auto continua se reconfigurando — Sura indo para popular e novas insurtechs captando capital mantêm a pressão sobre o tradicional.</p>
+  </div>
+
+  <nav class="toc">
+    <div class="toc-group">
+      <strong>🔴 Nível 1 — Concorrência direta</strong>
+      <a href="#item-01">01 · Free Flow Rota Verde Goiás</a>
+    </div>
+    <div class="toc-group">
+      <strong>🟡 Nível 2 — Adjacentes</strong>
+      <a href="#item-02">02 · Stellantis · 5 anos conectados</a>
+      <a href="#item-03">03 · Fiat Strada conectada</a>
+      <a href="#item-04">04 · Sura Brasil · auto popular</a>
+    </div>
+    <div class="toc-group">
+      <strong>🟢 Nível 3 — Radar obscuro</strong>
+      <a href="#item-05">05 · Hero Seguros · R$ 35M</a>
+    </div>
+  </nav>
+
+  <h2 class="section-title">🔴 Nível 1 — Concorrência direta</h2>
+
+  <article class="item" id="item-01">
+    <div class="item-head">
+      <span class="badge badge-n1">🔴 N1</span>
+      <span class="chip">ConectCar · Veloe · Taggy · Move Mais</span>
+      <span class="num">01</span>
+    </div>
+    <span class="destaque">Destaque da semana</span>
+    <h2>Free Flow Rota Verde ativa pórticos em Goiás e expande disputa de tags para fora do eixo SP-RJ</h2>
+    <p>A concessionária Rota Verde Goiás ligou em maio os primeiros cinco pórticos free flow nas BR-060 e BR-452, entre Goiânia, Rio Verde e Itumbiara. O modelo elimina cancelas, cobra por leitura de TAG ou placa e oferece desconto progressivo que pode chegar a 90% pelo Desconto de Usuário Frequente (DUF). As operadoras habilitadas são ConectCar, Veloe, Taggy e Move Mais (além de Sem Parar). Motociclistas não pagam.</p>
+    <div class="box-importa">
+      <strong>Por que importa</strong>
+      <p>É o primeiro corredor free flow relevante do Centro-Oeste e o desenho de DUF empurra agressivamente o usuário para resgatar TAG — quem ainda passa só com placa paga cheio. A janela de 12-18 meses para capturar base nessa rota é o jogo: ConectCar e Veloe vão entrar fortes em marketing regional, e Taggy/Move Mais — com modelo white label — podem multiplicar via bancos parceiros (C6, Inter, Sicredi). Para o nosso lado, monitorar quem vai patrocinar a quilometragem em apps de roteirização e quem vai amarrar com posto de combustível.</p>
+    </div>
+    <div class="sources">
+      <strong>Fontes:</strong>
+      <a href="https://ohoje.com/2026/05/07/pedagio-comeca-br-060-br-452-free-flow-goias/" target="_blank" rel="noopener">OHoje</a>
+      <a href="https://www.maisgoias.com.br/cidades/goiania/pedagio-sem-cancela-em-goias-vai-funcionar-como-pagar-free-flow/" target="_blank" rel="noopener">Mais Goiás</a>
+      <a href="https://blog.conectcar.com/sem-categoria/free-flow-em-goias-saiba-como-funcionara-o-pedagio-eletronico-nas-br-060-e-br-452/" target="_blank" rel="noopener">ConectCar Blog</a>
+      <a href="https://rotaverdegoias.com.br/pedagio/" target="_blank" rel="noopener">Rota Verde Goiás</a>
+      <span class="sources-count">4 veículos cobriram</span>
+    </div>
+  </article>
+
+  <h2 class="section-title">🟡 Nível 2 — Adjacentes</h2>
+
+  <article class="item" id="item-02">
+    <div class="item-head">
+      <span class="badge badge-n2">🟡 N2</span>
+      <span class="chip">Stellantis</span>
+      <span class="num">02</span>
+    </div>
+    <h2>Stellantis fecha 5 anos de serviços conectados na América do Sul com 500 mil veículos ativos</h2>
+    <p>A montadora celebrou em maio o quinto aniversário da operação de carros conectados na região, acumulando cerca de 500 mil veículos com serviços ativos e preparando 16 lançamentos para 2026. Os serviços incluem assistência emergencial, integração com smartphone/smartwatch e descontos em seguros para clientes que aceitam compartilhar dados de uso.</p>
+    <div class="box-importa">
+      <strong>Por que importa</strong>
+      <p>Montadora controlando a camada de dados de uso (telemetria, hábitos, manutenção) é ameaça direta para qualquer player que quer monetizar relacionamento com motorista — incluindo seguradoras digitais, fintechs auto e serviços de gestão de débitos. O ponto de pressão está nos "descontos em seguro" que a Stellantis já oferece em parceria: começa benigno, mas é a porta para a montadora intermediar a venda do seguro. Próximo movimento a vigiar: quando a Stellantis assina exclusividade com alguma seguradora no Brasil.</p>
+    </div>
+    <div class="sources">
+      <strong>Fontes:</strong>
+      <a href="https://alphaautos.com.br/2026/05/stellantis-celebra-cinco-anos-de-servicos-conectados-na-america-do-sul" target="_blank" rel="noopener">Alpha Autos</a>
+      <a href="https://www.autossegredos.com.br/tecnologia/stellantis-atinge-500-mil-carros-conectados-na-america-do-sul-e-acelera-ofensiva-digital-em-2026/" target="_blank" rel="noopener">Autos Segredos</a>
+      <a href="https://www.terra.com.br/mobilidade/stellantis-faz-5-anos-bate-recordes-e-prepara-16-lancamentos-em-2026,84c785933d14267ce0dba1793a43bfb2wiubaufo.html" target="_blank" rel="noopener">Terra</a>
+      <span class="sources-count">3 veículos cobriram</span>
+    </div>
+  </article>
+
+  <article class="item" id="item-03">
+    <div class="item-head">
+      <span class="badge badge-n2">🟡 N2</span>
+      <span class="chip">Stellantis · Fiat Strada</span>
+      <span class="num">03</span>
+    </div>
+    <h2>Fiat Strada ganha conectividade nativa — dados de uso de carro popular entram no jogo</h2>
+    <p>Dentro da ofensiva digital, a Stellantis confirmou em 2026 que a Strada — picape mais vendida do Brasil há vários anos — passa a sair de fábrica com pacote conectado. Isso adiciona uma frota nova e enorme à base de carros que enviam dados de uso, manutenção e localização direto para o ecossistema da montadora.</p>
+    <div class="box-importa">
+      <strong>Por que importa</strong>
+      <p>Carro conectado deixou de ser produto de gama alta. Quando o carro mais vendido do país já nasce mandando dados para a montadora, qualquer estratégia de B2C automotivo passa a competir com a montadora pelo direito de falar com o motorista. Para o Nível 1 de tags, isso é tangencial agora — mas vira ameaça quando a Stellantis começar a oferecer integração com pedágio dentro do próprio app, como já experimentam VW e BYD em outros mercados.</p>
+    </div>
+    <div class="sources">
+      <strong>Fontes:</strong>
+      <a href="https://www.autossegredos.com.br/tecnologia/stellantis-atinge-500-mil-carros-conectados-na-america-do-sul-e-acelera-ofensiva-digital-em-2026/" target="_blank" rel="noopener">Autos Segredos</a>
+      <a href="https://mecanicaonline.com.br/2026/04/stellantis-atinge-500-mil-veiculos-conectados-na-america-do-sul-e-eletrifica-servicos/" target="_blank" rel="noopener">Mecânica Online</a>
+      <span class="sources-count">2 veículos cobriram</span>
+    </div>
+  </article>
+
+  <article class="item" id="item-04">
+    <div class="item-head">
+      <span class="badge badge-n2">🟡 N2</span>
+      <span class="chip">Sura Brasil</span>
+      <span class="num">04</span>
+    </div>
+    <h2>Sura acelera plano de R$ 5 bi e mira carro popular em 2026</h2>
+    <p>A seguradora colombiana, que historicamente atuava com veículos de R$ 220 mil para cima, está democratizando o produto Auto Único para carros a partir de R$ 20 mil neste ano. A meta é chegar a R$ 5 bilhões em receita até 2028 (vinha de R$ 1,5 bi em 2024), com R$ 120 milhões em investimento de tecnologia distribuídos em 24 projetos e ampliação da rede de corretores.</p>
+    <div class="box-importa">
+      <strong>Por que importa</strong>
+      <p>O mercado de seguro auto popular no Brasil sempre teve barreira de subscrição — seguradora grande não queria carro velho/barato. Sura entrando força o resto do mercado a repensar, e cria oportunidade para insurtechs (Loovi, 88i, Pier, Justos) que já navegam esse segmento usarem o canal de corretores que a Sura está ativando. Movimento que vale acompanhar trimestre a trimestre: o ritmo real do "popular" da Sura vai dizer se o segmento desperta ou continua só em pitch deck.</p>
+    </div>
+    <div class="sources">
+      <strong>Fontes:</strong>
+      <a href="https://neofeed.com.br/negocios/seguradora-colombiana-acelera-projeto-no-pais-para-chegar-a-r-5-bi-de-receita/" target="_blank" rel="noopener">NeoFeed</a>
+      <a href="https://cqcs.com.br/noticia/seguros-sura-acelera-plano-de-crescimento-no-brasil/" target="_blank" rel="noopener">CQCS</a>
+      <a href="https://brazileconomy.com.br/financas/2025/06/seguradora-sura-projeta-r-5-bilhoes-ate-2028-e-aposta-em-corretores-e-na-inovacao/" target="_blank" rel="noopener">Brazil Economy</a>
+      <span class="sources-count">3 veículos cobriram</span>
+    </div>
+  </article>
+
+  <h2 class="section-title">🟢 Nível 3 — Radar obscuro</h2>
+
+  <article class="item" id="item-05">
+    <div class="item-head">
+      <span class="badge badge-n3">🟢 N3</span>
+      <span class="chip">Hero Seguros</span>
+      <span class="num">05</span>
+    </div>
+    <h2>Hero Seguros capta R$ 35M com Headline XP e Actyus, anuncia diretoria e Buenos Aires</h2>
+    <p>A insurtech fundada por Guilherme Wroclawski e Raphael Swierczynski concluiu sua primeira rodada de R$ 35 milhões, liderada pela Headline XP (de Romero Rodrigues) e com participação do Actyus (Andbank). Forte em seguro viagem (75% da receita), a Hero anunciou quatro novos diretores e escritório em Buenos Aires, com olhos no Chile e México — e sinalizou novas verticais como proteção financeira e garantia estendida.</p>
+    <div class="box-importa">
+      <strong>Por que importa</strong>
+      <p>Hero não é concorrente direto, mas é um sinal: capital fluindo para insurtech que opera com produto digital simples e expansão regional rápida. Vale ficar de olho no que conta como "novas verticais" — garantia estendida está a um passo de assistência auto/proteção mecânica, que tangencia o jogo do auto popular. Se a Hero ou Headline XP olharem para o segmento auto, é um novo entrante capitalizado no quadro.</p>
+    </div>
+    <div class="tese">
+      <strong>Tese:</strong> A Hero pode pivotar parte do funding para produtos auto adjacentes (garantia estendida, proteção mecânica, assistência) usando a base de corretores que já atende. Janela de 12-18 meses para validar se o mercado de seguro viagem sustenta o ritmo ou se vão precisar abrir nova vertical.
+    </div>
+    <div class="sources">
+      <strong>Fontes:</strong>
+      <a href="https://braziljournal.com/a-rodada-da-hero-que-quer-transformar-o-seguro-viagem/" target="_blank" rel="noopener">Brazil Journal</a>
+      <a href="https://www.insurtech.com.br/seguros/hero-seguros-anuncia-quatro-novos-diretores-e-reforca-estrategia-de-crescimento-apos-rodada-de-r-35-milhoes/" target="_blank" rel="noopener">Insurtech.com.br</a>
+      <a href="https://revistaapolice.com.br/2026/04/hero-seguros-reforca-diretoria-apos-aporte-de-r-35-mi/" target="_blank" rel="noopener">Revista Apólice</a>
+      <span class="sources-count">3 veículos cobriram</span>
+    </div>
+  </article>
+
+  <div class="fracos">
+    <h3>Sinais fracos · convergências para vigiar</h3>
+    <ul>
+      <li><strong>Regulação free flow.</strong> Governo federal suspendeu 3 milhões de multas do free flow e deu 200 dias para regularização — sinal de que o modelo ainda não rodou estabilizado. Próximas concessões (Paraná, Dutra) podem trazer mudança de regra que afete dinâmica de aquisição de tag.</li>
+      <li><strong>Trabalhista motorista de app.</strong> Discussão de renda mínima para Uber/99 voltou ao radar em abril/maio. Se virar lei, custo de operação sobe e janela para serviços B2C ao motorista (gestão de débitos, financiamento, seguro) muda de tamanho.</li>
+      <li><strong>Carros usados.</strong> Sem novos movimentos relevantes de Kavak/InstaCarro/Webmotors-Loop na semana — pode ser quietude antes de Q2 fechar. Vale checar próxima edição.</li>
+    </ul>
+  </div>
+
+  <footer>
+    <p>Radar Mercado · Semana 20 de 2026 · Gerado em 11/05/2026<br>
+    Cobertura editorial: 5 itens · 🔴1 · 🟡3 · 🟢1</p>
+  </footer>
+</div>
+</body>
+</html>
